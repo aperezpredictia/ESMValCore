@@ -234,7 +234,7 @@ CMIP5:
 OBS:
   cmor_strict: false
   input_dir:
-    default: 'Tier[tier]/[dataset]'
+    default: '/'
     BSC: '[type]/[institute.lower]/[dataset.lower]/[freq_folder]/[short_name][freq_base]'
   input_file:
     default: '[project]_[dataset]_[type]_[version]_[mip]_[short_name]_*.nc'
@@ -273,3 +273,13 @@ EMAC:
   input_file: ''
   output_file: '[dataset]_[ensemble]_[short_name]_[start_year]-[end_year]'
   cmor_type: 'CMIP5'
+
+CORDEX:
+  input_dir:
+    default: '/'
+    spec: '[domain]/[institute]/[driver]/[exp]/[ensemble]/[dataset]/[rcm_version]/[frequency]/[short_name]'
+    BADC: '[domain]/[institute]/[driver]/[exp]/[ensemble]/[dataset]/[rcm_version]/[frequency]/[short_name]/[latest_version]'
+  input_file: '[short_name]_[domain]_[driver]_[exp]_[ensemble]_[dataset]_[rcm_version]_[frequency]*.nc'
+  output_file: '[short_name]_[dataset]_*_[exp]_[ensemble]_*_[rcm_version]_[mip]_[start_year]-[end_year]'
+  cmor_type: 'CMIP5'
+

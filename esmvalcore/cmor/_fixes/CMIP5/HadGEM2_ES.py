@@ -1,7 +1,6 @@
 # pylint: disable=invalid-name, no-self-use, too-few-public-methods
 """Fixes for HadGEM2_ES."""
 import numpy as np
-import iris
 
 from ..fix import Fix
 
@@ -19,7 +18,7 @@ class allvars(Fix):
 
         Returns
         -------
-        iris.cube.Cube
+        iris.cube.CubeList
 
         """
         for cube in cubes:
@@ -35,8 +34,9 @@ class allvars(Fix):
 class o2(Fix):
     """Fixes for o2."""
 
-    def fix_file(self, filepath, output_dir):
+    def fix_metadata(self, cubes):
         """
+<<<<<<< HEAD:esmvalcore/cmor/_fixes/CMIP5/HadGEM2_ES.py
         Apply fixes to the files prior to creating the cube.
 
         Should be used only to fix errors that prevent loading or can
@@ -48,21 +48,22 @@ class o2(Fix):
             file to fix.
         output_dir: basestring
             path to the folder to store the fix files, if required.
+=======
+        Fix standard and long name.
+
+        Parameters
+        ----------
+        cube: iris.cube.CubeList
+
+>>>>>>> origin/development:esmvalcore/cmor/_fixes/cmip5/hadgem2_es.py
         Returns
         -------
-        basestring
-            Path to the corrected file. It can be different from the original
-            filepath if a fix has been applied, but if not it should be the
-            original filepath.
-        """
-        new_path = Fix.get_fixed_filepath(output_dir, filepath)
-        cube = iris.load_cube(filepath)
+        iris.cube.CubeList
 
+        """
         std = 'mole_concentration_of_dissolved_molecular_oxygen_in_sea_water'
         long_name = 'Dissolved Oxygen Concentration'
 
-        cube.long_name = long_name
-        cube.standard_name = std
-
-        iris.save(cube, new_path)
-        return new_path
+        cubes[0].long_name = long_name
+        cubes[0].standard_name = std
+        return cubes

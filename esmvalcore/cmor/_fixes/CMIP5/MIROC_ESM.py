@@ -1,6 +1,11 @@
+<<<<<<< HEAD:esmvalcore/cmor/_fixes/CMIP5/MIROC_ESM.py
 # pylint: disable=invalid-name, no-self-use, too-few-public-methods
 """Fixes for MIROC ESM model"""
 import cf_units
+=======
+"""Fixes for MIROC ESM model."""
+
+>>>>>>> origin/development:esmvalcore/cmor/_fixes/cmip5/miroc_esm.py
 from iris.coords import DimCoord
 from iris.exceptions import CoordinateNotFoundError
 
@@ -53,6 +58,7 @@ class co2(Fix):
         return cubes
 
 
+<<<<<<< HEAD:esmvalcore/cmor/_fixes/CMIP5/MIROC_ESM.py
 class gpp(Fix):
     """Fixes for gpp"""
 
@@ -78,6 +84,10 @@ class gpp(Fix):
 
 class allvars(Fix):
     """Common fixes to all vars"""
+=======
+class AllVars(Fix):
+    """Common fixes to all vars."""
+>>>>>>> origin/development:esmvalcore/cmor/_fixes/cmip5/miroc_esm.py
 
     def fix_metadata(self, cubes):
         """

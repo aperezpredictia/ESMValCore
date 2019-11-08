@@ -134,9 +134,15 @@ class Fix(object):
         list(Fix)
             Fixes to apply for the given data
         """
+<<<<<<< HEAD
         project = project.replace('-', '_')
         dataset = dataset.replace('-', '_')
         variable = variable.replace('-', '_')
+=======
+        project = project.replace('-', '_').lower()
+        dataset = dataset.replace('-', '_').lower()
+        variable = variable.replace('-', '_').lower()
+>>>>>>> origin/development
 
         fixes = []
         try:

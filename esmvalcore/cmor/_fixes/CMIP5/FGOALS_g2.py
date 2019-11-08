@@ -1,6 +1,7 @@
 # pylint: disable=invalid-name, no-self-use, too-few-public-methods
 """Fixes for FGOALS-g2 model"""
 from cf_units import Unit
+from iris.exceptions import CoordinateNotFoundError
 
 from ..fix import Fix
 
@@ -24,6 +25,10 @@ class allvars(Fix):
 
         """
         for cube in cubes:
-            time = cube.coord('time')
-            time.units = Unit(time.units.name, time.units.calendar)
+            try:
+                time = cube.coord('time')
+            except CoordinateNotFoundError:
+                pass
+            else:
+                time.units = Unit(time.units.name, time.units.calendar)
         return cubes

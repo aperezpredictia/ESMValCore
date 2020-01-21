@@ -6,7 +6,7 @@ import iris
 import numpy as np
 
 from ._mapping import get_empty_data, map_slices, ref_to_dims_index
-from esmvalcore.cmor._fixes.cmip5.bcc_csm1_1 import Tos
+from ESMValCore.esmvalcore.cmor._fixes.cmip5.bcc_csm1_1 import Tos
 
 
 ESMF_MANAGER = ESMF.Manager(debug=False)
